@@ -22,3 +22,25 @@
         regexp: '^server'
         state: absent
 
+    - name: "Configuring the Chrony.conf Time Zones"
+      blockinfile:
+        path: /etc/chrony.conf
+        block: |
+          server 0.asia.pool.ntp.org
+	  server 1.asia.pool.ntp.org
+	  server 2.asia.pool.ntp.org
+	  server 3.asia.pool.ntp.org
+        insertafter: .# Please*
+
+     - name: "restart and enable ntp/ chrony"
+       systemd: name={{ item }} state=restarted 
+       with_items:
+        - ntpd
+        - chronyd
+
+      - name: "reload and enable ntp/ chrony"
+        systemd: name={{ item }} state=reloaded 
+        with_items:
+        - ntpd
+        - chronyd
+
