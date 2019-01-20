@@ -24,7 +24,6 @@
 
     - name: "Configuring the Chrony.conf Time Zones"
       blockinfile:
-      lineinfile:
         path: /etc/chrony.conf
         block: |
           server 0.asia.pool.ntp.org
