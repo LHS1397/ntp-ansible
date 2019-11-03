@@ -27,9 +27,9 @@
         path: /etc/chrony.conf
         block: |
           server 0.asia.pool.ntp.org
-	        server 1.asia.pool.ntp.org
-	        server 2.asia.pool.ntp.org
-	        server 3.asia.pool.ntp.org
+          server 1.asia.pool.ntp.org
+          server 2.asia.pool.ntp.org
+          server 3.asia.pool.ntp.org
         insertafter: .# Please*
 
      - name: "restart and enable ntp/ chrony"
